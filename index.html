@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dividend and Earnings Calculations</title>
+</head>
+<body>
+    <h1>Dividend and Earnings Calculations</h1>
+
+    <input type="file" id="excelFile" accept=".xlsx">
+    <button onclick="processFile()">Calculate</button>
+
+    <div id="results"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dividend and Earnings Calculations</title>
+</head>
+<body>
+    <h1>Dividend and Earnings Calculations</h1>
+
+    <input type="file" id="excelFile" accept=".xlsx">
+    <button onclick="processFile()">Calculate</button>
+
+    <div id="results"></div>
+
+    <script>
+        function processFile() {
+            const fileInput = document.getElementById('excelFile');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select an Excel file first.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('excelFile', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = '';
+
+                for (const sheetName in data) {
+                    const sheetResults = data[sheetName];
+                    const sheetDiv = document.createElement('div');
+                    sheetDiv.innerHTML = `<h2>${sheetName}</h2><ul>${sheetResults.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                    resultsDiv.appendChild(sheetDiv);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
+-->
