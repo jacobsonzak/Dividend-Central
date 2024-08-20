@@ -31,6 +31,7 @@ function processFile(workbook) {
 }
 
 function calculateRatesAndRatios(data) {
+    //let dates = [];
     let dividends = [];
 
     data.forEach((row, index) => {
