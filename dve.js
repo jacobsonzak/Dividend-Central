@@ -1,22 +1,3 @@
-//document.getElementById('excelFile').addEventListener('change', processFile, false);
-/*
-function handleFile(event) {
-    const file1 = event.target.files[0];
-    const file2 = event.target.files[1];
-    if (!file1 || !file2) {
-        alert('Please select an Excel file.');
-        return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: 'array' });
-        processFile(workbook);
-    };
-    reader.readAsArrayBuffer(file);
-}*/
-
 function processFile() {
     console.log('processFile function called');
     const fileInput = document.getElementById('excelFile');
@@ -100,11 +81,11 @@ function divOverEarn(div, earn){
                 const denom = dnew[i][4];
                 //console.log(`denom is ${denom}`)
                 if (denom !== 0) {
-                    l.push(num / denom);
+                    l.push(`On ${enew[i][0]}, the dividends over earnings is ${(num / denom).toFixed(2)}`);
                     //console.log(`num / denom is ${l[i]}`)
                 } else {
                     console.warn(`Division by zero for index ${i}`);
-                    l.push('Inf'); // or handle it differently
+                    l.push('Inf');
                 }
         }
         li[val] = l;
